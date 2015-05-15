@@ -4,6 +4,9 @@ $("#menu").append($select);
 $("#menu a").each(function(){
   var $anchor = $(this);
   var $option = $("<option></option");
+  if ($anchor.parent().hasClass("selected")){
+    $option.prop("selected", true);
+  }
   $option.text($anchor.text());
   $option.val($anchor.attr("href"));
   $select.append($option);
@@ -14,3 +17,4 @@ var $button = $("<button>Go</button>");
   $button.click(function(){
   window.location = $select.val();
 });
+
